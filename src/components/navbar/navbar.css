@@ -9,3 +9,14 @@
 .links:hover{
     color: #F21667;
 }
+
+.link-home{
+    color: #ffffff;
+
+}
+
+.link-home:hover{
+    color: #ffffff;
+    text-decoration: none;
+
+}
