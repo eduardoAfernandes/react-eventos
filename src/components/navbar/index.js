@@ -1,10 +1,17 @@
 import React from 'react';
 import './navbar.css';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+
 
 
 function Navbar() {
+
+    const dispatch = useDispatch();
+
+
+    const email = useSelector(state => state.usuarioEmail);
+
     return (
         <nav className="navbar navbar-expand-lg">
             <span className="navbar-brand text-white font-weight-bold" href="#"><Link className="link-home" to="/">Eventos</Link></span>
@@ -12,14 +19,42 @@ function Navbar() {
                 <i class="fas fa-bars"></i>
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav mr-auto">
-                    <li className="nav-item"><Link className="nav-link links" to="/">Home</Link></li>
-                    <li className="nav-item"><Link className="nav-link links" to="login">Login</Link></li>
-                    <li className="nav-item"><Link className="nav-link links" to="register">Cadastrar</Link></li>
-                </ul>
-                <span class="navbar-text text-light">
-                    Olá, {useSelector(state => state.usuarioEmail)}
-    </span>
+
+                {
+                    useSelector(state => state.usuarioLogado) > 0 ?
+
+                    // Menu para que esta logado
+                        <>
+                            <ul className="navbar-nav mr-auto">
+                                <li className="nav-item"><Link className="nav-link links" to="/">Home</Link></li>
+                                <li className="nav-item"><Link className="nav-link links" to="register">Publicar Evento</Link></li>
+                                <li className="nav-item"><Link className="nav-link links" to="">Meus Eventos</Link></li>
+                            </ul>                        
+                            <div class="btn-group dropleft">
+                                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {email}
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" onClick={() => dispatch({ type: 'LOG_OUT',})}>Sair</a>
+                                </div>
+                            </div>
+                        </>
+
+                        :
+                        // Menu para que esta deslogado
+                        <>
+                            <ul className="navbar-nav mr-auto">
+
+                                <li className="nav-item"><Link className="nav-link links" to="/">Home</Link></li>
+                                <li className="nav-item"><Link className="nav-link links" to="login">Login</Link></li>
+                                <li className="nav-item"><Link className="nav-link links" to="register">Cadastrar</Link></li>
+                            </ul>
+
+                        </>
+
+
+                }
+
             </div>
         </nav>)
 }
