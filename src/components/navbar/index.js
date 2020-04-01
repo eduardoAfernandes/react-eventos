@@ -14,7 +14,7 @@ function Navbar() {
 
     return (
         <nav className="navbar navbar-expand-lg">
-            <span className="navbar-brand text-white font-weight-bold" href="#"><Link className="link-home" to="/">Eventos</Link></span>
+            <Link to="/"><i class="far fa-smile-wink text-white fa-2x"></i></Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
                 <i class="fas fa-bars"></i>
             </button>
@@ -26,7 +26,7 @@ function Navbar() {
                     // Menu para que esta logado
                         <>
                             <ul className="navbar-nav mr-auto">
-                                <li className="nav-item"><Link className="nav-link links" to="/">Home</Link></li>
+                                <li className="nav-item ml-2"><Link className="nav-link links" to="/">Home</Link></li>
                                 <li className="nav-item"><Link className="nav-link links" to="register">Publicar Evento</Link></li>
                                 <li className="nav-item"><Link className="nav-link links" to="">Meus Eventos</Link></li>
                             </ul>                        
@@ -45,7 +45,7 @@ function Navbar() {
                         <>
                             <ul className="navbar-nav mr-auto">
 
-                                <li className="nav-item"><Link className="nav-link links" to="/">Home</Link></li>
+                                <li className="nav-item ml-2"><Link className="nav-link links" to="/">Home</Link></li>
                                 <li className="nav-item"><Link className="nav-link links" to="login">Login</Link></li>
                                 <li className="nav-item"><Link className="nav-link links" to="register">Cadastrar</Link></li>
                             </ul>

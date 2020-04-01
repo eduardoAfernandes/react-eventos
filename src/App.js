@@ -1,5 +1,8 @@
 import React from 'react';
+// Rotas
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+// React Redux
 import store from '../src/store/';
 import { Provider } from 'react-redux';
 
@@ -7,6 +10,7 @@ import { Provider } from 'react-redux';
 import Login from './view/login/index';
 import Register from './view/register/index';
 import Home from './view/home/index';
+import RecuperarSenha from './view/recuperar-senha/index';
 
 function App() {
   return (
@@ -14,8 +18,10 @@ function App() {
     <Provider store={store}>
         <Router>
           <Route exact path='/' component={Home} />
+          <Route exact path='/home' component={Home}/>
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
+          <Route exact path='/forgot-password' component={RecuperarSenha}/>
         </Router>
    </Provider>
   );
