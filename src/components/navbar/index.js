@@ -27,7 +27,7 @@ function Navbar() {
                         <>
                             <ul className="navbar-nav mr-auto">
                                 <li className="nav-item ml-2"><Link className="nav-link links" to="/">Home</Link></li>
-                                <li className="nav-item"><Link className="nav-link links" to="register">Publicar Evento</Link></li>
+                                <li className="nav-item"><Link className="nav-link links" to="/create-event">Publicar Evento</Link></li>
                                 <li className="nav-item"><Link className="nav-link links" to="">Meus Eventos</Link></li>
                             </ul>                        
                             <div class="btn-group dropleft">
