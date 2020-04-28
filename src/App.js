@@ -26,7 +26,7 @@ function App() {
           <Route exact path='/register' component={Register} />
           <Route exact path='/forgot-password' component={RecuperarSenha}/>
           <Route exact path='/create-event' component={CadastroEventos}/>
-          <Route exact path='/show-event' component={DetalhesEvento}/>
+          <Route path='/show-event/:id' component={DetalhesEvento}/>
 
         </Router>
    </Provider>

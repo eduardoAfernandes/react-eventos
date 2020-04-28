@@ -26,7 +26,7 @@ export default function EventoCard({ id, img, titulo, detalhes, visualizacoes })
 
                     <div className="row rodape-card d-flex align-items-center">
                         <div className="col-6">
-                            <Link to={'/event-details/' + id} className="btn btn-sm btn-detalhes">+ detalhes</Link>
+                            <Link to={`/show-event/` + id} className="btn btn-sm btn-detalhes">+ detalhes</Link>
                         </div>
 
                         <div className="col-6 text-right">
