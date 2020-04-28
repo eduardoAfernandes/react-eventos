@@ -27,7 +27,6 @@ function App() {
           <Route exact path='/forgot-password' component={RecuperarSenha}/>
           <Route exact path='/create-event' component={CadastroEventos}/>
           <Route path='/show-event/:id' component={DetalhesEvento}/>
-
         </Router>
    </Provider>
   );

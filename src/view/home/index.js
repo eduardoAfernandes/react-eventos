@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import Navbar from '../../components/navbar/index';
 import EventoCard from '../../components/evento-card';
-import firebase from '../../config/firebase'
+import firebase from '../../config/firebase';
+import loadingGif from '../../assets/loading.gif';
 
 function Home({match}) {
     const [pesquisa, setPesquisa] = useState('');
@@ -55,9 +56,12 @@ function Home({match}) {
         <>
             <Navbar />
             <div className="container-fluid">
-
+                
+                <div className="row">
+                    <div className="col-12">
                 <h3 className="text-center font-weight-bold my-3">Eventos Publicados</h3>
-
+                </div>
+                </div>
                 <div className="row my-3 px-3">
                     <input type="text"  onChange={(e) => setPesquisa(e.target.value)} className="form-control text-center" placeholder="Pesquisar evento pelo título..." />
                 </div>
@@ -66,6 +70,7 @@ function Home({match}) {
                     {eventos.map(item => <EventoCard id={item.id} img={item.foto} titulo={item.titulo}
                         detalhes={item.detalhes} visualizacoes={item.visualizacoes} />)}
                 </div>
+
             </div>
         </>
     )
