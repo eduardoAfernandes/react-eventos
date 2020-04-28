@@ -12,6 +12,7 @@ import Register from './view/register/index';
 import Home from './view/home/index';
 import RecuperarSenha from './view/recuperar-senha/index';
 import CadastroEventos from './view/cadastro-evento/index';
+import DetalhesEvento from './view/detalhes-evento/index';
 
 function App() {
   return (
@@ -19,11 +20,14 @@ function App() {
     <Provider store={store}>
         <Router>
           <Route exact path='/' component={Home} />
+          <Route  path='/my-events/:parametro' component={Home} />
           <Route exact path='/home' component={Home}/>
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
           <Route exact path='/forgot-password' component={RecuperarSenha}/>
           <Route exact path='/create-event' component={CadastroEventos}/>
+          <Route exact path='/show-event' component={DetalhesEvento}/>
+
         </Router>
    </Provider>
   );
