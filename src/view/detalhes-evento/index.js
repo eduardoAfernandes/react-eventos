@@ -15,14 +15,19 @@ export default function DetalhesEvento(props) {
     const [carregando, setCarregando] = useState(1);
 
     useEffect(() => {
+        if(carregando){        
         firebase.firestore().collection('eventos').doc(props.match.params.id).get().then(resultado => {
             setEvento(resultado.data())
-            firebase.storage().ref(`imagens/${evento.foto}`).getDownloadURL().then(url => {
+            firebase.firestore().collection('eventos').doc(props.match.params.id).update('visualizacoes',resultado.data().visualizacoes + 1)
+            firebase.storage().ref(`imagens/${resultado.data().foto}`).getDownloadURL().then(url => {
                 setUrlImg(url)
                 setCarregando(0);
             });
         });
-    })
+    }else{
+        firebase.storage().ref(`imagens/${evento.foto}`).getDownloadURL().then(url =>  setUrlImg(url))
+    }
+    },[])
 
     return (
         <>
@@ -40,6 +45,9 @@ export default function DetalhesEvento(props) {
                         <div>
                             <div className="row">
                                 <img src={urlImg} className="img-banner" alt="Banner" />
+                                <div className="col-12 text-right mt-1 visualiacoes">
+                                    <i class="fas fa-eye"></i> <span>{evento.visualizacoes + 1}</span>
+                                </div>
                                 <h3 className="mx-auto mt-4"><strong>{evento.titulo}</strong></h3>
                             </div>
 
